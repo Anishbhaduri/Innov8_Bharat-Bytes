@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="signup.css">
+    <script type="module" src="firebase.js"></script> 
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1>Sign In</h1>
+
+            <!-- Sign In Form -->
+            <form action="" method="post">
+                <div class="input-field">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="input-field">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="signin-btn">Sign In</button>
+                    <a href="#" class="google-btn">
+                        <img src="./src/gugul.webp" alt="Google Logo">
+                        Sign in with Google
+                    </a>
+                </div>
+
+                <div class="extra-links">
+                    <a href="./forgot.html" class="forgot-password">Forgot Password?</a>
+                    <a href="./create.html" class="create-account">Create Account</a>
+                </div>
+            </form>
+        </div>
+     </div>
+</body>
+</html>

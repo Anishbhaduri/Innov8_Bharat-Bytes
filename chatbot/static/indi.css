@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column; /* Stack header and chatbox vertically */
+}
+
+/* Header styling */
+#header-pad {
+    width: 100%; /* Make the header span the entire width */
+    max-width: 400px; /* Match the chat container width */
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px; /* Add space between header and chatbox */
+    border-radius: 10px 10px 0 0; /* Rounded top corners */
+}
+
+#title {
+    margin: 0;
+    padding-left: 20px;
+}
+
+#header-icons {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.header-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+    border-radius: 50%;
+}
+
+/* Chat container */
+#chat-container {
+    width: 400px;
+    background-color: white;
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#chat-box {
+    height: 400px;
+    padding: 20px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Chat message styling */
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.user-message {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+}
+
+.response-message {
+    background-color: #e6e6e6;
+    align-self: flex-start;
+}
+
+/* Input container */
+#input-container {
+    display: flex;
+    padding: 10px;
+    background-color: #f4f4f4;
+}
+
+#message-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+#send-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background-color: #45a049;
+}
+
+.message strong {
+    color: #007bff;
+}

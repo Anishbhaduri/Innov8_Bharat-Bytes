@@ -1,0 +1,141 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('./src/login.jpg') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Ensures the image covers the entire page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main container for the login box */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+
+/* Login box styling */
+.login-box {
+    background-color: rgba(210, 180, 140, 0.9); /* Semi-transparent light brown background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    width: 350px;
+    text-align: center;
+}
+
+.login-box h1 {
+    color: #4E3629; /* Dark brown */
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* Input field styling */
+.input-field {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-field label {
+    font-size: 14px;
+    color: #4E3629;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #a68d6d; /* Light brown border */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f6f3;
+    color: #4E3629;
+}
+
+.input-field input:focus {
+    border-color: #8B4513; /* Dark brown when focused */
+    outline: none;
+}
+
+/* Button Group: Sign In and Google Button */
+.button-group {
+    margin-top: 10px;
+}
+
+.signin-btn {
+    background-color: #8B4513; /* Brown */
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signin-btn:hover {
+    background-color: #A0522D; /* Lighter brown */
+}
+
+.signin-btn:active {
+    background-color: #7F3300; /* Darker brown when clicked */
+}
+
+/* Google button styling */
+.google-btn {
+    background: #7F3300; /* Google colors */
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.google-btn img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.google-btn:hover {
+    opacity: 0.9;
+}
+
+.google-btn:active {
+    opacity: 0.8;
+}
+
+/* Extra Links: Forgot Password & Create Account */
+.extra-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.extra-links a {
+    text-decoration: none;
+    color: #4E3629;
+    font-size: 14px;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}

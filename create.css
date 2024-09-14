@@ -1,0 +1,89 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('./src/login.jpg') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Ensures the image covers the entire page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main container for the create account box */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+
+/* Create Account box styling */
+.create-account-box {
+    background-color: #D2B48C; /* Light brown */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    width: 350px;
+    text-align: center;
+}
+
+.create-account-box h1 {
+    color: #4E3629; /* Dark brown */
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* Input field styling */
+.input-field {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-field label {
+    font-size: 14px;
+    color: #4E3629;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #a68d6d; /* Light brown border */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f6f3;
+    color: #4E3629;
+}
+
+.input-field input:focus {
+    border-color: #8B4513; /* Dark brown when focused */
+    outline: none;
+}
+
+/* Submit button */
+.submit-btn {
+    background-color: #8B4513; /* Brown */
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #A0522D; /* Lighter brown */
+}
+
+.submit-btn:active {
+    background-color: #7F3300; /* Darker brown when clicked */
+}

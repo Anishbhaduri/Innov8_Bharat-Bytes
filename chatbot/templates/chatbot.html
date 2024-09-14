@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chatbot</title>
+    <style>
+
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column; /* Stack header and chatbox vertically */
+}
+
+/* Header styling */
+       #header-pad {
+    width: 100%; /* Make the header span the entire width */
+    max-width: 400px; /* Match the chat container width */
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px; /* Add space between header and chatbox */
+    border-radius: 10px 10px 0 0; /* Rounded top corners */
+       }
+
+#title {
+    margin: 0;
+    padding-left: 20px;
+}
+
+#header-icons {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.header-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+    border-radius: 50%;
+}
+
+/* Chat container */
+#chat-container {
+    width: 400px;
+    background-color: white;
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#chat-box {
+    height: 400px;
+    padding: 20px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Chat message styling */
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.user-message {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+}
+
+.response-message {
+    background-color: #e6e6e6;
+    align-self: flex-start;
+}
+
+/* Input container */
+#input-container {
+    display: flex;
+    padding: 10px;
+    background-color: #f4f4f4;
+}
+
+#message-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+#send-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background-color: #45a049;
+}
+
+.message strong {
+    color: #007bff;
+}
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Type a message..." />
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Replace with your actual API key
+        const apiKey = 'OPENAI_APIKEY';
+
+        document.getElementById('send-button').addEventListener('click', async () => {
+            const userInput = document.getElementById('user-input');
+            const message = userInput.value.trim();
+            if (message === '') return;
+
+            // Display user's message
+            appendMessage('user', message);
+
+            // Clear input field
+            userInput.value = '';
+
+            // Send message to the OpenAI API
+            try {
+                const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    },
+                    body: JSON.stringify({
+                        model: "gpt-3.5-turbo",
+                        messages: [
+                            { role: "system", content: "You are an intelligent assistant." },
+                            { role: "user", content: message }
+                        ],
+                        max_tokens: 150
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.error) {
+                    appendMessage('assistant', `Error: ${data.error.message}`);
+                } else {
+                    // Display assistant's response
+                    const aiMessage = data.choices[0].message.content;
+                    appendMessage('assistant', aiMessage);
+                }
+            } catch (error) {
+                appendMessage('assistant', `Error: ${error.message}`);
+            }
+        });
+
+        function appendMessage(role, text) {
+            const chatBox = document.getElementById('chat-box');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}`;
+            messageDiv.innerHTML = `<div class="message-text">${text}</div>`;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+        }
+    </script>
+</body>
+</html>
+
